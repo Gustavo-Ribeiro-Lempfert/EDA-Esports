@@ -1,12 +1,21 @@
 import CampoTexto from '../CampoTexto/CampoTexto'
+import ListaSuspensa from '../ListaSuspensa/ListaSuspensa'
 import './Formulario.css'
 
 const Formulario = () => {
+
+    const posicoes = [
+        'Top',
+        'Jungle',
+        'Mid',
+        'Atirador',
+        'Suporte'
+    ]
     return (
         <section className='formulario'>
             <form>
                 <CampoTexto label="Nick/nome" placeholder='Nome "Nick" Sobrenome' />
-                <CampoTexto label="Posição" placeholder="Diga em qualposição o jogador deseja jogar" />
+                <ListaSuspensa itens={posicoes} label="posicao" placeholder="Diga em qualposição o jogador deseja jogar"/>
                 <CampoTexto label="Imagem" placeholder="Digite o endereço da sua imagem" />
             </form>
         </section>
