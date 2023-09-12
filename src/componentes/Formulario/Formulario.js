@@ -7,24 +7,18 @@ import './Formulario.css'
 const Formulario = (props) => {
 
 
-    const posicoes = [
-        'Top',
-        'Jungle',
-        'Mid',
-        'Atirador',
-        'Suporte'
-    ]
-
     const [nome, setNome] = useState('')
-    const [posicao, setposicao] = useState('')
+    const[posicao, setPosicao] =useState('')
     const [imagem, setimagem] = useState('')
+    const[time, setTime] = useState('')
 
     const aoSAlvar = (evento) =>{
         evento.preventDefault()
         props.aoJogadorCadastrado({
             nome,
             posicao,
-            imagem
+            imagem,
+            time
         })
     }
 
@@ -38,18 +32,25 @@ const Formulario = (props) => {
                 valor={nome} 
                 aoAlterado={valor => setNome(valor)}
                 />
-                <ListaSuspensa 
-                itens={posicoes} 
+                 <CampoTexto 
                 label="posicao" 
-                placeholder="Diga em qualposição o jogador deseja jogar" 
+                placeholder="Digite a posição do jogador" 
                 valor={posicao} 
-                aoAlterado={valor => setposicao(valor)}
+                aoAlterado={valor => setPosicao(valor)}
                 />
                 <CampoTexto 
                 label="Imagem" 
                 placeholder="Digite o endereço da sua imagem" 
                 valor={imagem} 
                 aoAlterado={valor => setimagem(valor)}
+                />
+                <ListaSuspensa 
+                obrigatorio={true}
+                itens={props.times} 
+                label="time" 
+                placeholder="Diga em qual time o jogador vai jogar" 
+                valor={time} 
+                aoAlterado={valor => setTime(valor)}
                 />
                 <Botao texto="Cadastrar jogador"/>
             </form>
