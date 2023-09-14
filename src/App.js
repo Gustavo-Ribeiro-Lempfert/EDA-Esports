@@ -35,6 +35,10 @@ function App() {
     setJogador([...jogadores, jogador])
   }
 
+  function deletarJogador() {
+    return 
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -45,7 +49,8 @@ function App() {
         nome={time.nome} 
         corPrimaria={time.corPrimaria} 
         corSecundaria={time.corSecundaria}
-        jogadores={jogadores.filter(jogador => jogador.time === time.nome)}/>)}
+        jogadores={jogadores.filter(jogador => jogador.time === time.nome)}
+        aoDeletar={deletarJogador}/>)}
 
     </div>
   );
